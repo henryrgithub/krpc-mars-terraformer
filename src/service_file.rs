@@ -53,6 +53,7 @@ pub struct ProcParameter {
 #[serde(tag = "code")]
 #[serde(rename_all = "UPPERCASE")]
 pub enum Type {
+    Status,
     Bool,
     SInt32,
     UInt32,
@@ -71,6 +72,7 @@ pub enum Type {
 impl Type {
     pub fn to_rust_type(&self) -> String {
         match self {
+            Type::Status => "String".to_string(),
             Type::Bool => "bool".to_string(),
             Type::SInt32 => "i32".to_string(),
             Type::UInt32 => "u32".to_string(),
