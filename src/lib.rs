@@ -33,6 +33,7 @@ where
 
     // Generate rust code for each service file
     for file_path in services_paths {
+        println!("ab");
         let service_file = ServiceFile::load_from_file(file_path)?;
         generator.run(&service_file)?;
         services.extend(service_file.services.into_keys())
