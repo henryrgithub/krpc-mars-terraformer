@@ -55,6 +55,7 @@ pub struct ProcParameter {
 pub enum Type {
     Status,
     Services,
+    Procedure_Call,
     Bool,
     SInt32,
     UInt32,
@@ -75,6 +76,7 @@ impl Type {
         match self {
             Type::Status => "String".to_string(),
             Type::Services => "String".to_string(),
+            Type::Procedure_Call => "String".to_string(),
             Type::Bool => "bool".to_string(),
             Type::SInt32 => "i32".to_string(),
             Type::UInt32 => "u32".to_string(),
