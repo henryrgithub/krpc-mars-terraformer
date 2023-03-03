@@ -53,9 +53,6 @@ pub struct ProcParameter {
 #[serde(tag = "code")]
 #[serde(rename_all = "UPPERCASE")]
 pub enum Type {
-    /*Status,
-    Services,
-    Procedure_Call,*/
     Bool,
     SInt32,
     UInt32,
@@ -74,9 +71,6 @@ pub enum Type {
 impl Type {
     pub fn to_rust_type(&self) -> String {
         match self {
-            /*Type::Status => "String".to_string(),
-            Type::Services => "String".to_string(),
-            Type::Procedure_Call => "String".to_string(),*/
             Type::Bool => "bool".to_string(),
             Type::SInt32 => "i32".to_string(),
             Type::UInt32 => "u32".to_string(),
@@ -128,7 +122,8 @@ pub struct Enum {
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 pub struct EnumValue {
     pub name: String,
-    pub value: u32,
+    //pub value: u32, //note that i32 might lose some stuff, only in mapfiltertype so far
+    pub value: i32,
 }
 
 impl ServiceFile {
